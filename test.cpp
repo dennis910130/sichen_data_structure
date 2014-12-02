@@ -20,13 +20,20 @@ int main (int argc, char** argv) {
 	sichen::MyTools::writeFloatsToFiles("sorted_samples.txt", a, len);
 	
 	//test heap
+	//use the heap to maintain the highest 10 number of all 1000 numbers generated.
 	cout << "Heap Test:" << endl;
 	int b[] = {5,3,2,1,10};
-	sichen::MyPQ<int> tmp(b,5,200);
+	sichen::MyPQ<int> tmp(b,5,20);
 	cout << "Empty? " << tmp.empty() << endl;
 	srand(time(NULL));
-	for (int i = 0; i < 10; i++) {
-		tmp.insert(rand()%1000);
+	tmp.print();
+	for (int i = 0; i < 5; i++) {
+		tmp.insert(rand()%100);
+		tmp.print();
+	}
+	for (int i = 0; i < 1000; i++) {
+		tmp.insert(rand()%100);
+		tmp.removeMax();
 		tmp.print();
 	}
 	return 0;

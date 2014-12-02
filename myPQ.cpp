@@ -32,7 +32,7 @@ namespace sichen {
 
 	template <typename Dtype>
 	bool MyPQ<Dtype>::compare(Dtype a, Dtype b) {
-		return a < b;
+		return a > b;
 	}
 	
 	template <typename Dtype>
